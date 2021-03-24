@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+/* Coin flip */
+.coin-flip-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #dcffed;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#coin {
+    margin-bottom: 5rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#coin-flip-title {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#coin-flip-button {
+    display: inline-block;
+    color: white;
+    background-color: #72ffb7;
+    z-index: 30;
+    position: relative;
+    border: none;
+    border-radius: 16px;
+    padding: 15px 30px;
 }
-
-.App-link {
-  color: #61dafb;
+#coin-flip-button:focus {
+    outline: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.animate-coin {
+    animation: flip 2s 1;
+}
+@keyframes flip {
+    0% {
+        transform: scale3d(1,1,1) rotateX(0deg);
+    }
+    50% {
+        transform: scale3d(2,2,2) rotateX(3600deg);
+    }
+    100% {
+        transform: scale3d(1,1,1) rotateX(7200deg);
+    }
+}
+.coin-flip-wrapper img {
+    max-width:100%;
+    display: block;
+    position: relative;
+    z-index: 0;
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/four-leaf-clover_1f340.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -24,11 +24,48 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Lele's coin flip</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-4-grid@3.4.0/css/grid.min.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div class='coin-flip-wrapper'>
+        <div class="text-center m-auto">
+            <div id="coin-flip-title">Lele's coin flip ❤</div>
+            <img id="featureCoin"
+                 src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>
+            <div id='coin'>
+            </div>
+            <button id='coin-flip-button'>
+                Lancer la pièce
+            </button>
+        </div>
+    </div>
+    <script>
+        var coin = document.getElementById('coin');
+        var button = document.getElementById('coin-flip-button');
+        var featureCoin = document.getElementById('featureCoin');
+
+        function coinToss() {
+            var x = Math.floor(Math.random() * 2);
+            coin.innerHTML = '<img class="heads animate-coin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png" style="filter: brightness(0) contrast(0);"/>';
+            if (x === 0) {
+                setTimeout(() => {
+                    coin.innerHTML = '<img class="heads" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>';
+                }, 2000)
+            } else {
+                setTimeout(() => {
+                    coin.innerHTML = '<img class="tails" src="https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png"/>';
+                }, 2000)
+            }
+
+        }
+        button.onclick = function() {
+            coinToss();
+            featureCoin.remove();
+        }
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
