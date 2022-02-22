@@ -1,4 +1,7 @@
 /* Coin flip */
+body {
+    -webkit-perspective: 800px;
+}
 .coin-flip-wrapper {
     position: absolute;
     top: 0;
@@ -8,9 +11,6 @@
     width: 100%;
     justify-content: center;
     background-color: #dcffed;
-}
-#coin {
-    margin-bottom: 5rem;
 }
 #coin-flip-title {
     margin-bottom: 2rem;
@@ -27,26 +27,77 @@
     border-radius: 16px;
     padding: 15px 30px;
 }
+#coin-flip-button:hover {
+    cursor: pointer;
+}
 #coin-flip-button:focus {
     outline: none;
 }
-.animate-coin {
-    animation: flip 2s 1;
-}
-@keyframes flip {
-    0% {
-        transform: scale3d(1,1,1) rotateX(0deg);
-    }
-    50% {
-        transform: scale3d(2,2,2) rotateX(3600deg);
-    }
-    100% {
-        transform: scale3d(1,1,1) rotateX(7200deg);
-    }
-}
-.coin-flip-wrapper img {
-    max-width:100%;
-    display: block;
+
+#coin {
     position: relative;
-    z-index: 0;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 4rem;
+}
+#coin div {
+    width: 100%;
+    height: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.side-a {
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png');
+    background-size: contain;
+}
+.side-b {
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png');
+    background-size: contain;
+}
+
+#coin {
+    transition: -webkit-transform 1s ease-in;
+    -webkit-transform-style: preserve-3d;
+}
+#coin div {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+}
+.side-a {
+    z-index: 100;
+}
+.side-b {
+    -webkit-transform: rotateY(-180deg);
+}
+
+#coin.heads {
+    -webkit-animation: flipHeads 3s ease-out forwards;
+    -moz-animation: flipHeads 3s ease-out forwards;
+    -o-animation: flipHeads 3s ease-out forwards;
+    animation: flipHeads 3s ease-out forwards;
+}
+#coin.tails {
+    -webkit-animation: flipTails 3s ease-out forwards;
+    -moz-animation: flipTails 3s ease-out forwards;
+    -o-animation: flipTails 3s ease-out forwards;
+    animation: flipTails 3s ease-out forwards;
+}
+
+@-webkit-keyframes flipHeads {
+    from { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+    to { -webkit-transform: rotateY(1800deg); -moz-transform: rotateY(1800deg); transform: rotateY(1800deg); }
+}
+@-webkit-keyframes flipTails {
+    from { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+    to { -webkit-transform: rotateY(1980deg); -moz-transform: rotateY(1980deg); transform: rotateY(1980deg); }
+}
+
+@keyframes flipHeads {
+    from { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+    to { -webkit-transform: rotateY(1800deg); -moz-transform: rotateY(1800deg); transform: rotateY(1800deg); }
+}
+@keyframes flipTails {
+    from { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+    to { -webkit-transform: rotateY(1980deg); -moz-transform: rotateY(1980deg); transform: rotateY(1980deg); }
 }

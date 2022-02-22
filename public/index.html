@@ -33,9 +33,9 @@
     <div class='coin-flip-wrapper'>
         <div class="text-center m-auto">
             <div id="coin-flip-title">Lele's coin flip ❤</div>
-            <img id="featureCoin"
-                 src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>
-            <div id='coin'>
+            <div id="coin">
+                <div class="side-a"></div>
+                <div class="side-b"></div>
             </div>
             <button id='coin-flip-button'>
                 Lancer la pièce
@@ -43,27 +43,24 @@
         </div>
     </div>
     <script>
-        var coin = document.getElementById('coin');
-        var button = document.getElementById('coin-flip-button');
-        var featureCoin = document.getElementById('featureCoin');
+        const coin = document.getElementById('coin');
+        const button = document.getElementById('coin-flip-button');
 
         function coinToss() {
-            var x = Math.floor(Math.random() * 2);
-            coin.innerHTML = '<img class="heads animate-coin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png" style="filter: brightness(0) contrast(0);"/>';
-            if (x === 0) {
-                setTimeout(() => {
-                    coin.innerHTML = '<img class="heads" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>';
-                }, 2000)
-            } else {
-                setTimeout(() => {
-                    coin.innerHTML = '<img class="tails" src="https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png"/>';
-                }, 2000)
-            }
-
+            const x = Math.floor(Math.random() * 2);
+            coin.classList.remove('heads', 'tails');
+            setTimeout(function(){
+                if (x === 0) {
+                    document.querySelector('#coin').classList.add('heads');
+                    console.log('it is head');
+                } else {
+                    document.querySelector('#coin').classList.add('tails');
+                    console.log('it is tails');
+                }
+            }, 100);
         }
         button.onclick = function() {
             coinToss();
-            featureCoin.remove();
         }
     </script>
     <!--
