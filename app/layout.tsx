@@ -13,8 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Coin Flip Game",
-  description: "A fun coin flip game with animated 3D coin effects",
+  title: "Jeu de Pile ou Face",
+  description: "Un jeu de pile ou face amusant avec des effets 3D animés",
+  icons: {
+    icon: [
+      {
+        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>",
+        type: "image/svg+xml",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
