@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jeu de Pile ou Face",
-  description: "Un jeu de pile ou face amusant avec des effets 3D animés",
+  title: "Lélé's coinflip",
+  description: "le pile ou face de Léa",
   icons: {
     icon: [
       {

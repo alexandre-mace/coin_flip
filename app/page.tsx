@@ -51,7 +51,7 @@ export default function Home() {
     <div className="min-h-screen flex items-center justify-center bg-[#b00000]">
       <div className="flex flex-col items-center space-y-8">
         <h1 className="text-2xl font-bold text-[#ff00ee]">
-          Jeu de Pile ou Face
+          Lélé's coinflip
         </h1>
         
         <div 
